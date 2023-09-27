@@ -9,7 +9,23 @@ Contact:      jcvera@illinois.edu
 ## Description: 
 Runs the Whitaker lab WGS pipeline through initial QC and alignment steps. Establishes a directory hiearchy for output and downstream pipelines.
 
-This pipeline can trim/QC raw FASTQ reads, assemble reads with either Unicycler or SPAdes, and run Ariba MLST and VFDB. 
+This pipeline can trim/QC raw FASTQ reads with Trimmomatic and FASTQScreen, assemble reads with either Unicycler or SPAdes, and run Ariba MLST and VFDB. 
+
+List of tools: 
+- FastQC
+- MultiQC
+- Trimmomatic
+- Picard
+- FastqScreen
+- Sambamba
+- Centrifuge
+- Qualimap
+- BWA-mem
+- BAMtools
+- Unicycler
+- Ariba
+- SPAdes
+
 
 ```
 Main Options-Switches:
