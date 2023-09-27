@@ -6,6 +6,7 @@ Contact:      jcvera@illinois.edu
 ## Description: 
 Runs the Whitaker lab WGS pipeline through initial QC and alignment steps. Establishes a directory hiearchy for output and downstream pipelines.
 
+```
 Main Options-Switches:
 	-d  Option: specify input directory with sample files. Required.
 	-e  Option: specify output directory. Required.
@@ -55,3 +56,4 @@ Main Options-Switches:
 
 Usage:
 Run_MainPipeline_IGOH_QConly.pl -d [Input Sample Directory] -e [Output Directory] -p [Project Name] -t [Threads] -z [Gzipped] -m [Ariba] -R [Reference] -u [Assembly] -k [Library Kit]
+```
