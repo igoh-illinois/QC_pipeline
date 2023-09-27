@@ -31,7 +31,7 @@ my $help = "\nRun_PseudomonasPipeline_IGOH_QConly $version\nDescription: Runs Wh
           "\t-p  Option: specify project name. Required.\n".
           "\t-t  Option: specify number of threads to use (when possible). Default=8.\n".
           "\t-z  Option: raw reads are gzipped. Default=0.\n".
-          "\t-u  Option: run assembly step. Defualt=0.\n".
+          "\t-u  Option: run assembly step. Default=0.\n".
           "\t\t 0: no assembly\n".
           "\t\t 1: Unicycler assembly, use raw reads with correction\n".
           "\t\t 2: Unicycler assembly, use trim reads with no correction\n".
@@ -282,6 +282,7 @@ foreach my $samplefile1 (@samplefiles){
     $addgroups_cmd1 = "$addreadgroup INPUT=$outdir/Sample_$samplename/$sample\_BWA-mem.bam OUTPUT=$outdir/Sample_$samplename/$sample\_BWA-mem.RG.bam VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=LENIENT COMPRESSION_LEVEL=5";
     $sort_cmd1 = "$sambamba sort -t $procs -m 32G --tmpdir $outdir/Sample_$samplename/temp -o $outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.bam $outdir/Sample_$samplename/$sample\_BWA-mem.RG.bam 2>$outdir/Sample_$samplename/$sample\_sort_bwa.err && rm $outdir/Sample_$samplename/$sample\_BWA-mem.bam $outdir/Sample_$samplename/$sample\_BWA-mem.RG.bam";
     $markedup_cmd1 = "$sambamba markdup --sort-buffer-size=8192 --overflow-list-size=1000000 -t $procs --tmpdir=$outdir/Sample_$samplename/temp $outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.bam $outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.markedup.bam 2>$outdir/Sample_$samplename/$sample\_markdup_bwa.err && rm $outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.bam $outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.bam.bai";
+    #$markedup_cmd1 = "mv $outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.bam $outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.markedup.bam"; # used this markedup command instead if the pipeline fails on the sambamba markdup step. 
     $filter_cmd = "$sambamba view -F \"not secondary_alignment and not supplementary\" -f bam $outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.markedup.bam >$outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.markedup.filtered.bam";
     $bamtools_cmd = "$bamtools stats -in $outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.markedup.filtered.bam 1>$outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.markedup.filtered.bam_stats 2>$outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.markedup.filtered.bam_stats.err && $bamtools stats -in $outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.markedup.bam 1>$outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.markedup.bam_stats 2>$outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.markedup.bam_stats.err";
     $qualimap_cmd = "$qualimap bamqc -bam $outdir/Sample_$samplename/$sample\_BWA-mem.RG.sorted.markedup.filtered.bam -ip -c -outdir $outdir/Sample_$samplename/qualimap -outformat PDF -nt $procs --java-mem-size=64G -nw 500 -p NON-STRAND-SPECIFIC 2>$outdir/Sample_$samplename/qualimap/$sample\_qualimap.err";
