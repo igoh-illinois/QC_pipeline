@@ -39,8 +39,6 @@ MISC_AribaVR	/data/refs/ariba/vfbd/vfdb_core/
 MISC_CentrifugeDB	/data/refs/centrifuge/abv
 MISC_TrimParameters	2:36:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:50 
 
-## 2021-01-08: Laura Suttenfield: current MISC_TrimParameters line is what Ted Kim uses. This information replaced the following : 2:36:10 LEADING:20 TRAILING:20 MAXINFO:50:0.97 MINLEN:50
-
 ##Reference Genomes
 
 ##   Paeruginosa_CompleteRef_PA14-RW
@@ -54,18 +52,6 @@ REF_Paeruginosa_CompleteRef_PA14-RW	FastqScreenConf	/data/scripts/conf/fastq_scr
 REF_Paeruginosa_CompleteRef_PA14-RW	GFF	/data/refs/annotation/Paeruginosa_CompleteRef_PA14-RW/PA14_REF_UnicyclerAssembly.gff
 REF_Paeruginosa_CompleteRef_PA14-RW	Ref	Paeruginosa_CompleteRef_PA14-RW
 REF_Paeruginosa_CompleteRef_PA14-RW	Refname	Pseudomonas PA14-RW Complete Unicycler Ref
-
-##   Paeruginosa_CoreGenome1
-REF_Paeruginosa_CoreGenome1	Annovar	/data/refs/annovar/Paeruginosa_CoreGenome
-REF_Paeruginosa_CoreGenome1	AribaST	/data/refs/ariba/pubmlst/pseudomonas/ref_db/
-REF_Paeruginosa_CoreGenome1	BWA	/data/refs/bwa/PA_CoreGenome1/PA_CoreGenome1.backbone.fasta
-REF_Paeruginosa_CoreGenome1	Bowtie2	/data/refs/bowtie2/Paeruginosa_CoreGenome/PA_CoreGenome1.backbone
-REF_Paeruginosa_CoreGenome1	Breseq	/data/refs/annotation/Paeruginosa_CoreGenome/PA_CoreGenome1.backbone.fasta
-REF_Paeruginosa_CoreGenome1	BuildVer	PA_CoreGenome1.backbone
-REF_Paeruginosa_CoreGenome1	FastqScreenConf	/data/scripts/conf/fastq_screen_forPipeline_PA_CoreGenome1.conf
-REF_Paeruginosa_CoreGenome1	GFF	/data/refs/annotation/Paeruginosa_CoreGenome/PA_CoreGenome1.backbone.gff
-REF_Paeruginosa_CoreGenome1	Ref	Paeruginosa_CoreGenome1
-REF_Paeruginosa_CoreGenome1	Refname	Pseudomonas Spine Core Genome 1
 
 ##   Paeruginosa_RefSeq_PA01
 REF_Paeruginosa_RefSeq_PA01	Annovar	/data/refs/annovar/Paeruginosa_RefSeq_PA01
